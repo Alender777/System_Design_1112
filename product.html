@@ -197,7 +197,7 @@
     .related-book {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
+      margin: 10px 20px;
     }
 
     .related-book-image {
@@ -208,6 +208,11 @@
 
     .related-book-details {
       font-size: 16px;
+    }
+
+    .button_margin{
+      width: 130px;
+      margin: 0 5px;
     }
   </style>
 </head>
@@ -235,40 +240,55 @@
   </div>
 </header>
 
-<div class="book-container">
-  <img class="book-image" src="harry_potter_1.jpg" alt="書籍照片">
-  <h1 class="book-title">哈利波特—神秘的魔法石</h1>
-  <p class="book-details">出版社：皇冠出版社</p>
-  <p class="book-details">作者：J.K.羅琳</p>
-  <p class="book-details">價格：NT$799</p>
-  <button class="btn btn-primary">加入購物車 <i class="fas fa-shopping-cart"></i></button>
-  <p class="book-description">《哈利波特—神秘的魔法石》是J.K.羅琳創作的著名奇幻小說系列《哈利波特》的第一本書。本書講述了一名普通男孩哈利波特在11歲生日時發現自己是一位巫師，並進入霍格華茲魔法學校的故事。他在這個神奇且充滿危險的魔法世界中經歷了各種冒險，並發現自己的身世和使命。</p>
+<div style="display: flex;flex-direction: column;align-items: center;margin: 5% 5%">
+  <div class="book-container" style="display: flex;flex-direction: row">
+    <div>
+      <img class="book-image" src="harry_potter_1.jpg" alt="書籍照片">
+    </div>
+    <div style="display: flex;flex-direction: column;height: 400px;padding: 60px 50px; align-items: flex-start">
+      <h1 class="book-title">哈利波特—神秘的魔法石</h1>
+      <p class="book-details">出版社：皇冠出版社</p>
+      <p class="book-details">作者：J.K.羅琳</p>
+      <p class="book-details">價格：NT$799</p>
+      <p class="book-description">《哈利波特—神秘的魔法石》是J.K.羅琳創作的著名奇幻小說系列《哈利波特》的第一本書。本書講述了一名普通男孩哈利波特在11歲生日時發現自己是一位巫師，並進入霍格華茲魔法學校的故事。他在這個神奇且充滿危險的魔法世界中經歷了各種冒險，並發現自己的身世和使命。</p>
+      <div style="display: flex;flex-direction: row;">
+        <button class="btn btn-primary button_margin">加入購物車 <i class="fas fa-shopping-cart"></i></button>
+        <button class="btn btn-primary button_margin">加入收藏 <i class="fas fa-book"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="related-books-container" style="display: flex;flex-direction: column">
+    <h2 class="related-books-title">同系列書籍</h2>
+    <div style="display: flex;flex-direction: row;">
+      <div class="related-book">
+        <img class="related-book-image" src="harry_potter_2.jpg" alt="同系列書籍1">
+        <div class="related-book-details">
+          <h3>哈利波特—消失的密室</h3>
+          <p>價格：NT$799</p>
+        </div>
+      </div>
+      <div class="related-book">
+        <img class="related-book-image" src="harry_potter_3.jpg" alt="同系列書籍2">
+        <div class="related-book-details">
+          <h3>哈利波特—阿茲卡班的逃犯</h3>
+          <p>價格：NT$899</p>
+        </div>
+      </div>
+      <div class="related-book">
+        <img class="related-book-image" src="harry_potter_4.jpg" alt="同系列書籍3">
+        <div class="related-book-details">
+          <h3>哈利波特—火盃的考驗</h3>
+          <p>價格：NT$799</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="related-books-container">
-  <h2 class="related-books-title">同系列書籍</h2>
-  <div class="related-book">
-    <img class="related-book-image" src="related-book1.jpg" alt="同系列書籍1">
-    <div class="related-book-details">
-      <h3>哈利波特—消失的密室</h3>
-      <p>價格：NT$799</p>
-    </div>
-  </div>
-  <div class="related-book">
-    <img class="related-book-image" src="related-book2.jpg" alt="同系列書籍2">
-    <div class="related-book-details">
-      <h3>哈利波特—阿茲卡班的逃犯</h3>
-      <p>價格：NT$899</p>
-    </div>
-  </div>
-  <div class="related-book">
-    <img class="related-book-image" src="related-book3.jpg" alt="同系列書籍3">
-    <div class="related-book-details">
-      <h3>哈利波特—火盃的考驗</h3>
-      <p>價格：NT$799</p>
-    </div>
-  </div>
-</div>
+
+
+
+
 
 
 <!-- 引入 Bootstrap JS -->
