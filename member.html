@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>買家會員中心</title>
+    <link href="loginstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8a53a8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #c0a7ce;
+            padding: 20px;
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #AD7DC8;
+            color: #FFFFFF;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 120%;
+        }
+        input[type="submit"]:hover {
+            background-color: #8f5b9c;
+        }
+
+        #header-text {
+            font-size: 18px;
+            color: #333333;
+        }
+
+        #header-search {
+            flex: 1;
+            text-align: left;
+            padding-left: 30%;
+        }
+        #header-search input[type="text"] {
+            width: 400px;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #header-search button[type="submit"] {
+            background-color: #AD7DC8;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+        #header-search button[type="submit"]:hover {
+            background-color: #8f5b9c;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div id="logo"><a href="index.html"><img src="logo.png" alt="" class="img-fluid logo" style="max-height: 50px;"></a></div>
+    <div id="header-search">
+        <input type="text" id="search" name="search" placeholder="搜尋...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div id="header-text"><b>哈囉，測試買家！</b></div>
+</header>
+
+<aside>
+    <button><a href="edit.html"> 編輯會員資料</a></button>
+    <button>收藏商品</button>
+    <button>折價券列表</button>
+    <button>購物車</button>
+
+</aside>
+
+</body>
+</html>

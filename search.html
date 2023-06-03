@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <title>購物車</title>
+  <link href="loginstyle.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- 引入 Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap.min.css">
+  <style>
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ca5e9b;
+    }
+
+    /* Search result styles */
+    .search-results-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 120px;
+    }
+
+    .search-result {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background-color: #f9dded;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .search-result-image {
+      max-width: 200px;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+
+    .search-result-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 20px;
+    }
+
+    .search-result-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: inline;
+    }
+
+    .search-result-author,
+    .search-result-price,
+    .search-result-stock {
+      display: inline;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #f9dded;
+      padding: 20px;
+      height: 80px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #header-text {
+      font-size: 18px;
+      color: #333333;
+    }
+
+    #header-search {
+      flex: 1;
+      text-align: left;
+      padding-left: 30%;
+    }
+
+    #header-search input[type="text"] {
+      width: 400px;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #header-search button[type="submit"] {
+      background-color: #b23b7e;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+
+    #header-icons {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-icon {
+      margin-left: 12px;
+      color: #333333;
+      font-size: 24px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: transparent;
+      color: #333333;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      margin-top: 28px;
+      background-color: #f9dded;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #333333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ca5e9b;
+      color: #FFFFFF;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .fa-caret-down {
+      margin-left: 4px;
+    }
+  </style>
+</head>
+</head>
+
+<body>
+<header>
+  <div id="header logo">
+    <a href="index.html"><img src="logo.png" alt="" class="img-fluid logo" style="max-height: 50px;"></a>
+  </div>
+  <div id="header-search">
+    <input type="text" id="search" name="search" placeholder="搜尋...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+  <div id="header-icons">
+    <div class="dropdown">
+      <button class="dropbtn">分類 <i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+        <a href="#">分類1</a>
+        <a href="#">分類2</a>
+        <a href="#">分類3</a>
+      </div>
+    </div>
+    <a href="shoppingCart.html" class="header-icon"><i class="fa fa-shopping-cart"></i></a>
+    <a href="login.html" class="header-icon"><i class="fa fa-user"></i></a>
+  </div>
+</header>
+
+<div class="search-results-container">
+  <h1>搜尋結果：哈利波特</h1>
+  <div class="search-result">
+    <img src="harry_potter_1.jpg" alt="哈利波特—神秘的魔法石" class="search-result-image">
+    <div class="search-result-title">哈利波特—神秘的魔法石 </div>
+    <div class="search-result-author">作者：J.K.羅琳<br> </div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：10</div>
+  </div>
+
+  <div class="search-result">
+    <img src="harry_potter_2.jpg" alt="哈利波特—消失的密室" class="search-result-image">
+    <div class="search-result-title">哈利波特—消失的密室</div>
+    <div class="search-result-author">作者：J.K.羅琳</div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：15</div>
+  </div>
+
+  <div class="search-result">
+    <img src="harry_potter_3.jpg" alt="哈利波特—阿茲卡班的逃犯" class="search-result-image">
+    <div class="search-result-title">哈利波特—阿茲卡班的逃犯</div>
+    <div class="search-result-author">作者：J.K.羅琳</div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：8</div>
+  </div>
+
+  <div class="search-result">
+    <img src="harry_potter_4.jpg" alt="哈利波特—火盃的考驗" class="search-result-image">
+    <div class="search-result-title">哈利波特—火盃的考驗</div>
+    <div class="search-result-author">作者：J.K.羅琳</div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：12</div>
+  </div>
+
+  <div class="search-result">
+    <img src="harry_potter_5.jpg" alt="哈利波特—鳳凰會的密令" class="search-result-image">
+    <div class="search-result-title">哈利波特—鳳凰會的密令</div>
+    <div class="search-result-author">作者：J.K.羅琳</div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：5</div>
+  </div>
+
+  <div class="search-result">
+    <img src="harry_potter_6.jpg" alt="哈利波特—混血王子的背叛" class="search-result-image">
+    <div class="search-result-title">哈利波特—混血王子的背叛</div>
+    <div class="search-result-author">作者：J.K.羅琳</div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：18</div>
+  </div>
+
+  <div class="search-result">
+    <img src="harry_potter_7.jpg" alt="哈利波特—死神的聖物" class="search-result-image">
+    <div class="search-result-title">哈利波特—死神的聖物</div>
+    <div class="search-result-author">作者：J.K.羅琳</div>
+    <div class="search-result-price">價格：$799</div>
+    <div class="search-result-stock">庫存數量：3</div>
+  </div>
+</div>
+
+<!-- 引入 jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- 引入 Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<!-- 引入 Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

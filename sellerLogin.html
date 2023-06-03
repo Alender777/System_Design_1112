@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <title>賣家登入</title>
+  <link href="loginstyle.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+        /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ca5e9b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #f9dded;
+      padding: 20px;
+      height: 80px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #b23b7e;
+      color: #FFFFFF;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 120%; /* Increase font size by 150% */
+    }
+        #header-search {
+          flex: 1;
+          text-align: left;
+          padding-left: 30%;
+        }
+        #header-search input[type="text"] {
+          width: 400px;
+          padding: 8px;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+        #header-search button[type="submit"] {
+          background-color: #b23b7e;
+          border: none;
+          padding: 8px 12px;
+          margin-left: 8px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          color: #FFFFFF;
+        }
+        #header-search button[type="submit"]:hover {
+          background-color: #7e2a59;
+        }
+  </style>
+</head>
+<body>
+<header>
+  <div id="header logo">
+    <a href="index.html"><img src="logo.png" alt="" class="img-fluid logo" style="max-height: 50px;"></a>
+  </div>
+  <div id="header-search">
+    <input type="text" id="search" name="search" placeholder="搜尋...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+</header>
+
+<div class="container">
+  <h1>賣家登入</h1>
+  <form id="loginForm" action="memberS.html" method="POST">
+    <label for="email">Email：</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="password">密碼：</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <input type="submit" value="登入"><br><br>
+
+    <small>不是賣家？前往<a href="login.html">買家登入頁面</a></small>
+    <small>沒有帳號？前往<a href="register.html">註冊頁面</a></small>
+  </form>
+</div>
+
+<script>
+  // 檢查表單是否有欄位遺漏
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    var emailInput = document.getElementById("email");
+    var passwordInput = document.getElementById("password");
+
+    if (emailInput.value === "" || passwordInput.value === "") {
+      alert("請填寫信箱和密碼");
+      event.preventDefault(); // 防止提交表單
+    }
+    else if (emailInput.value === "demo@fcu.edu.tw" && passwordInput.value === "123"){
+      alert("請從買家路徑登入")
+      event.preventDefault();
+    }
+    else if (emailInput.value !== "buyer@fcu.edu.tw" || passwordInput.value !== "123"){
+      alert("帳密錯誤！請重新輸入")
+      event.preventDefault();
+    }
+  });
+</script>
+</body>
+</html>

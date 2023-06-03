@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>購物車</title>
+    <link href="loginstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap.min.css">
+    <style>
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ca5e9b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #f9dded;
+            padding: 20px;
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header-text {
+            font-size: 18px;
+            color: #333333;
+        }
+
+        #header-search {
+            flex: 1;
+            text-align: left;
+            padding-left: 30%;
+        }
+
+        #header-search input[type="text"] {
+            width: 400px;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #header-search button[type="submit"] {
+            background-color: #b23b7e;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+
+        #header-icons {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .header-icon {
+            margin-left: 12px;
+            color: #333333;
+            font-size: 24px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: #333333;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            margin-top: 28px;
+            background-color: #f9dded;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ca5e9b;
+            color: #FFFFFF;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .fa-caret-down {
+            margin-left: 4px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<header>
+    <div id="header logo">
+        <a href="index.html"><img src="logo.png" alt="" class="img-fluid logo" style="max-height: 50px;"></a>
+    </div>
+    <div id="header-search">
+        <input type="text" id="search" name="search" placeholder="搜尋...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div id="header-icons">
+        <div class="dropdown">
+            <button class="dropbtn">分類 <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="#">分類1</a>
+                <a href="#">分類2</a>
+                <a href="#">分類3</a>
+            </div>
+        </div>
+        <a href="shoppingCart.html" class="header-icon"><i class="fa fa-shopping-cart"></i></a>
+        <a href="login.html" class="header-icon"><i class="fa fa-user"></i></a>
+    </div>
+</header>
+
+<div class="cart-container">
+    <div class="cart-item">
+        <img src="product1.jpg" alt="Product 1" class="cart-item-image">
+        <div class="cart-item-details">
+            <div class="cart-item-name">獸人姿勢集: 簡單4步驟學習素描&設計</div>
+            <div class="cart-item-quantity">數量: 1</div>
+            <div class="cart-item-price">$450</div>
+            <div class="cart-item-delete">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+    </div>
+    <div class="cart-item">
+        <img src="product2.jpg" alt="Product 2" class="cart-item-image">
+        <div class="cart-item-details">
+            <div class="cart-item-name">愛上雞胸肉的100道美味提案</div>
+            <div class="cart-item-quantity">數量: 1</div>
+            <div class="cart-item-price">$405</div>
+            <div class="cart-item-delete">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+    </div>
+    <div class="cart-total">
+        <div class="cart-total-label">總金額:</div>
+        <div class="cart-total-price">$855</div>
+        <button class="checkout-button"><a href="check.html"> 結帳</a></button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteButtons = document.querySelectorAll(".cart-item-delete");
+        var cartTotalPrice = document.querySelector(".cart-total-price");
+        var cartItems = document.querySelectorAll(".cart-item");
+
+        deleteButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                var cartItem = button.closest(".cart-item");
+                cartItem.style.display = "none";
+
+                // 更新總價格
+                calculateTotalPrice();
+            });
+        });
+
+        function calculateTotalPrice() {
+            var total = 0;
+            cartItems.forEach(function(item) {
+                if (item.style.display !== "none") {
+                    var priceElement = item.querySelector(".cart-item-price");
+                    var price = parseFloat(priceElement.textContent.replace("$", ""));
+                    total += price;
+                }
+            });
+            cartTotalPrice.textContent = "$" + total;
+        }
+    });
+</script>
+<!-- 引入 jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- 引入 Bootstrap 的 bundle（包含 Popper.js） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
