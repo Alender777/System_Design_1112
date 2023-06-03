@@ -226,6 +226,9 @@
         <label for="price">價格</label>
         <input type="text" id="price" name="price">
 
+        <label for="series">系列名稱(無則留空)</label>
+        <input type="text" id="series" name="series">
+
 
       <button class="upload-button">上傳</button>
     </form>
@@ -234,6 +237,36 @@
       <a href="index.html" class="home-button">確認</a>
     </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var uploadButton = document.querySelector(".upload-button");
+    uploadButton.addEventListener("click", function (event) {
+
+
+      var image = document.getElementById("image").value;
+      var author = document.getElementById("author").value;
+      var title = document.getElementById("title").value;
+      var description = document.getElementById("description").value;
+      var publisher = document.getElementById("publisher").value;
+      var price = document.getElementById("price").value;
+      var series = document.getElementById("series").value;
+
+      // 檢查輸入值是否為空
+      if (image !== "" && author !== "" && title !== "" && description !== "" && publisher !== "" && price !== "") {
+        // 如果系列名稱不為空或者價格為數字，顯示上傳成功訊息
+        if (series === "" || !isNaN(parseFloat(price))) {
+          alert("上傳成功！");
+        } else {
+          alert("請輸入有效的價格！");
+          event.preventDefault(); // 防止表單提交
+        }
+      } else {
+        alert("請填寫所有必填項目！");
+        event.preventDefault(); // 防止表單提交
+      }
+    });
+  });
+</script>
 
 
 </body>
