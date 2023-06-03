@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap.min.css">
   <style>
     /* Body styles */
-    /* Body styles */
     body {
       font-family: Arial, sans-serif;
       background-color: #ca5e9b;
@@ -284,7 +283,20 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var addToCartButton = document.querySelector('.book-container .btn-primary.button_margin:first-of-type');
+    var addToFavoritesButton = document.querySelector('.book-container .btn-primary.button_margin:last-of-type');
 
+    addToCartButton.addEventListener('click', function() {
+      alert('已加入購物車');
+    });
+
+    addToFavoritesButton.addEventListener('click', function() {
+      alert('已加入收藏');
+    });
+  });
+</script>
 <!-- 引入 Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.bundle.min.js"></script>
 </body>
