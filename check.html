@@ -1,10 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>商品結帳</title>
+    <link href="loginstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ca5e9b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        /* Header styles */
+        header {
+            background-color: #f9dded;
+            padding: 20px;
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header-text {
+            font-size: 18px;
+            color: #333333;
+        }
+
+        #header-search {
+            flex: 1;
+            text-align: left;
+            padding-left: 30%;
+        }
+        #header-search input[type="text"] {
+            width: 400px;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #header-search button[type="submit"] {
+            background-color: #b23b7e;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+
+
+
+        #header-icons {
+            display: flex;
+            align-items: center;
+            gap: 32px; /* 加入元素之間的距離 */
+        }
+
+        .header-icon {
+            margin-left: 12px;
+            color: #333333;
+            font-size: 24px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: #333333;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            margin-top: 28px;
+            background-color: #f9dded;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ca5e9b;
+            color: #FFFFFF;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .fa-caret-down {
+            margin-left: 4px;
+        }
+
+        /* Checkout container styles */
+        .checkout-container {
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            padding: 40px;
+            width: 70%;
+            max-width: 100%;
+            margin: 0 auto;
+            margin-top: 80px; /* Added margin to create space below the header */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+            font-size: 2em; /* Increase font size by 150% */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333333;
+            font-size: 110%; /* Increase font size by 10% */
+        }
+
+        .personal-info,
+        .product-details,
+        .payment-shipping {
+            margin-bottom: 40px;
+        }
+
+        .personal-info h2,
+        .product-details h2,
+        .payment-shipping h2 {
+            margin-bottom: 20px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .product-item img {
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        .product-item .product-name {
+            flex-grow: 1;
+        }
+
+        .product-item .product-price {
+            font-weight: bold;
+        }
+
+        .payment-methods,
+        .shipping-methods {
+            margin-bottom: 10px;
+        }
+
+        .payment-methods label,
+        .shipping-methods label {
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkout-button {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <div id="header logo">
+        <a href="index.html"><img src="logo.png" alt="" class="img-fluid logo" style="max-height: 50px;"></a>
+    </div>
+    <div id="header-search">
+        <input type="text" id="search" name="search" placeholder="搜尋...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div id="header-icons">
+        <div class="dropdown">
+            <button class="dropbtn">分類 <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="#">分類1</a>
+                <a href="#">分類2</a>
+                <a href="#">分類3</a>
+            </div>
+        </div>
+        <a href="shoppingCart.html" class="header-icon"><i class="fa fa-shopping-cart"></i></a>
+        <a href="login.html" class="header-icon"><i class="fa fa-user"></i></a>
+    </div>
+</header>
+
+<div class="checkout-container">
+    <div class="personal-info">
+        <h2>個資</h2>
+        <div>
+            <label for="order-name">訂購人姓名:</label>
+            <input type="text" id="order-name" name="order-name" placeholder="請輸入訂購人姓名">
+        </div>
+        <div>
+            <label for="order-phone">訂購人電話號碼:</label>
+            <input type="text" id="order-phone" name="order-phone" placeholder="請輸入訂購人電話號碼">
+        </div>
+        <div>
+            <label for="recipient-name">收件人姓名:</label>
+            <input type="text" id="recipient-name" name="recipient-name" placeholder="請輸入收件人姓名">
+        </div>
+        <div>
+            <label for="recipient-phone">收件人電話號碼:</label>
+            <input type="text" id="recipient-phone" name="recipient-phone" placeholder="請輸入收件人電話號碼">
+        </div>
+    </div>
+
+    <div class="product-details">
+        <h2>購買商品</h2>
+        <div class="product-item">
+            <img src="product1.jpg" alt="Product 1">
+            <div class="product-name">獸人姿勢集: 簡單4步驟學習素描&設計</div>
+            <div class="product-price">$450</div>
+        </div>
+        <div class="product-item">
+            <img src="product2.jpg" alt="Product 2">
+            <div class="product-name">愛上雞胸肉的100道美味提案</div>
+            <div class="product-price">$405</div>
+        </div>
+        <div class="product-item">
+            <div class="product-name">優惠</div>
+            <div class="product-price">適用<b>會員專屬—水獺相關書籍買一送一</b>活動</div>
+        </div>
+        <div class="product-item">
+            <div class="product-name">總金額</div>
+            <div class="product-price">$450</div>
+        </div>
+    </div>
+
+    <div class="payment-shipping">
+        <h2>付款</h2>
+        <div class="payment-methods">
+            <input type="radio" id="payment-cod" name="payment-method" value="cod">
+            <label for="payment-cod"><i class="fa fa-money-bill"></i> 貨到付款</label>
+        </div>
+        <div class="payment-methods">
+            <input type="radio" id="payment-atm" name="payment-method" value="atm">
+            <label for="payment-atm"><i class="fa fa-credit-card"></i> ATM轉帳</label>
+        </div>
+        <div class="payment-methods">
+            <input type="radio" id="payment-credit-card" name="payment-method" value="credit-card">
+            <label for="payment-credit-card"><i class="fa fa-credit-card"></i> 信用卡</label>
+        </div>
+        <div class="payment-methods">
+            <input type="radio" id="payment-linepay" name="payment-method" value="linepay">
+            <label for="payment-linepay"><i class="fa fa-money-bill"></i> Line Pay</label>
+        </div>
+        <h2>配送方式</h2>
+        <div class="shipping-methods">
+            <input type="radio" id="shipping-store" name="shipping-method" value="store">
+            <label for="shipping-store"><i class="fa fa-store"></i> 超商店到店</label>
+        </div>
+        <div class="shipping-methods">
+            <input type="radio" id="shipping-delivery" name="shipping-method" value="delivery">
+            <label for="shipping-delivery"><i class="fa fa-truck"></i> 宅配</label>
+        </div>
+    </div>
+
+    <div class="checkout-button">
+        <button onclick="checkout()">送出</button>
+    </div>
+</div>
+
+<!-- 引入 Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.min.js"></script>
+<script>
+    function checkout() {
+        alert("訂購成功，詳細資料請查閱您的email");
+    }
+</script>
 </body>
+
 </html>
