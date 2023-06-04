@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>商品上傳</title>
+    <link href="loginstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 引入 Bootstrap CSS -->
+
+    <style>
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ca5e9b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #f9dded;
+            padding: 20px;
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header-text {
+            font-size: 18px;
+            color: #333333;
+        }
+
+        #header-search {
+            flex: 1;
+            text-align: left;
+            padding-left: 30%;
+        }
+
+        #header-search input[type="text"] {
+            width: 400px;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #header-search button[type="submit"] {
+            background-color: #b23b7e;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+
+        #header-icons {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .header-icon {
+            margin-left: 12px;
+            color: #333333;
+            font-size: 24px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: #333333;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            margin-top: 28px;
+            background-color: #f9dded;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ca5e9b;
+            color: #FFFFFF;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .fa-caret-down {
+            margin-left: 4px;
+        }
+
+        /* Form styles */
+        .upload-form {
+            background-color: #f9dded;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .upload-button {
+            background-color: #b23b7e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-button:hover {
+            background-color: #8b265b;
+        }
+
+        .continue-button,
+        .home-button {
+            background-color: #f9dded;
+            color: #333333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .continue-button:hover,
+        .home-button:hover {
+            background-color: #ca5e9b;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div id="header logo">
+        <a href="index.html"><img src="logo.png" alt="" class="img-fluid logo" style="max-height: 50px;"></a>
+    </div>
+    <div id="header-search">
+        <input type="text" id="search" name="search" placeholder="搜尋...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div id="header-icons">
+        <div class="dropdown">
+            <button class="dropbtn">分類 <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="#">分類1</a>
+                <a href="#">分類2</a>
+                <a href="#">分類3</a>
+            </div>
+        </div>
+        <a href="shoppingCart.html" class="header-icon"><i class="fa fa-shopping-cart"></i></a>
+        <a href="login.html" class="header-icon"><i class="fa fa-user"></i></a>
+    </div>
+</header>
+
+<div class="container" style="margin-top: 8%;margin-bottom: 3%;width: 600px">
+    <form  action="index2.html" method="POST">
+        <h1>上傳系統</h1>
+        <label for="image">商品圖片</label>
+        <input type="file" id="image" name="image">
+        <label for="author">作者</label>
+        <input type="text" id="author" name="author" value="George R. R. Martin">
+
+        <label for="title">書名</label>
+        <input type="text" id="title" name="title">
+
+        <label for="description">簡介</label>
+        <input type="text" id="description" name="description">
+
+        <label for="publisher">出版社</label>
+        <input type="text" id="publisher" name="publisher" value="Spectra">
+
+        <label for="price">價格</label>
+        <input type="text" id="price" name="price">
+
+        <label for="series">系列名稱(無則留空)</label>
+        <input type="text" id="series" name="series" value="冰與火之歌">
+
+
+        <button class="upload-button"><a href="index2.html">上傳</a></button>
+    </form>
+    <div style="margin-top: 20px;">
+        <a href="new_product2.html" class="continue-button">繼續刊登同系列商品</a>
+        <a href="memberS.html" class="home-button">返回</a>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var uploadButton = document.querySelector(".upload-button");
+        uploadButton.addEventListener("click", function (event) {
+
+
+            var image = document.getElementById("image").value;
+            var author = document.getElementById("author").value;
+            var title = document.getElementById("title").value;
+            var description = document.getElementById("description").value;
+            var publisher = document.getElementById("publisher").value;
+            var price = document.getElementById("price").value;
+            var series = document.getElementById("series").value;
+
+            // 檢查輸入值是否為空
+            if (image !== "" && author !== "" && title !== "" && description !== "" && publisher !== "" && price !== "") {
+                // 如果系列名稱不為空或者價格為數字，顯示上傳成功訊息
+                if (series === "" || !isNaN(parseFloat(price))) {
+                    alert("上傳成功！");
+                } else {
+                    alert("請輸入有效的價格！");
+                    event.preventDefault(); // 防止表單提交
+                }
+            } else {
+                alert("請填寫所有必填項目！");
+                event.preventDefault(); // 防止表單提交
+            }
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

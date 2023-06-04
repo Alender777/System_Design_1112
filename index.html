@@ -192,7 +192,16 @@
     </div>
     <!-- 兩張圖片結束 -->
 </div>
+<script>
+    // 偵測滑鼠進入與離開事件
+    document.querySelector('.dropdown').addEventListener('mouseover', function () {
+        this.querySelector('.dropdown-menu').classList.add('show');
+    });
 
+    document.querySelector('.dropdown').addEventListener('mouseout', function () {
+        this.querySelector('.dropdown-menu').classList.remove('show');
+    });
+</script>
 <!-- 引入 Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.bundle.min.js"></script>
 </body>
